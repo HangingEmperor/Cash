@@ -2,13 +2,17 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.*;
+import java.util.Optional;
 
 public class Controller {
 
@@ -21,23 +25,29 @@ public class Controller {
     private boolean isSave;
 
     @FXML
-    void open() throws IOException {
+    void open() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open File");
         fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"));
         Stage primaryStage = new Stage();
         file = fileChooser.showOpenDialog(primaryStage);
 
-        String aux = "";
-        String oldData = "";
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        while ((aux = bufferedReader.readLine()) != null) {
-            oldData += aux + "\n";
+        try {
+            String aux = "";
+            String oldData = "";
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            while ((aux = bufferedReader.readLine()) != null) {
+                oldData += aux + "\n";
+            }
+            bufferedReader.close();
+            textArea.setText(oldData);
+            isSave = true;
+        } catch (IOException e) {
+
+        } catch (NullPointerException e) {
+
         }
-        bufferedReader.close();
-        textArea.setText(oldData);
-        isSave = true;
     }
 
     @FXML
@@ -80,7 +90,7 @@ public class Controller {
             archive.append(textArea.getText());
             archive.close();
         } catch (IOException ex) {
-            System.out.println("Hubo un error");
+        } catch (NullPointerException ex) {
         }
         isSave = true;
     }
@@ -90,9 +100,17 @@ public class Controller {
         if (isSave) {
             save();
         } else {
-            saveAs();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Message");
+            alert.setHeaderText("Do you want to exit without save?");
+            alert.initStyle(StageStyle.UTILITY);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                System.exit(0);
+            }
         }
-        System.exit(0);
+
     }
 
 }
