@@ -22,6 +22,7 @@ public class Controller {
     private TextArea textArea;
 
     private File file;
+    private File after;
     private boolean isSave;
 
     @FXML
@@ -43,10 +44,8 @@ public class Controller {
             bufferedReader.close();
             textArea.setText(oldData);
             isSave = true;
-        } catch (IOException e) {
-
-        } catch (NullPointerException e) {
-
+        } catch (IOException | NullPointerException ex) {
+            System.err.println("Cierre inesperado.");
         }
     }
 
@@ -54,14 +53,13 @@ public class Controller {
     void save() {
         if (!isSave) {
             saveAs();
-            isSave = true;
         } else {
             try {
                 FileWriter archive = new FileWriter(file);
                 archive.append(textArea.getText());
                 archive.close();
-            } catch (IOException ex) {
-                System.out.println("Hubo un error");
+            } catch (IOException | NullPointerException ex) {
+                System.err.println("Cierre inesperado.");
             }
         }
     }
@@ -79,24 +77,23 @@ public class Controller {
             if (!file.exists()) {
                 file.createNewFile();
             }
-        } catch (IOException e) {
-
-        } catch (NullPointerException e) {
-
+        } catch (IOException | NullPointerException ex) {
+            System.err.println("Cierre inesperado.");
         }
 
         try {
             FileWriter archive = new FileWriter(file);
             archive.append(textArea.getText());
             archive.close();
-        } catch (IOException ex) {
-        } catch (NullPointerException ex) {
+            isSave = true;
+        } catch (IOException | NullPointerException ex) {
+            System.err.println("Cierre inesperado.");
         }
-        isSave = true;
     }
 
     @FXML
     void exit(ActionEvent event) throws IOException {
+        System.out.println(isSave);
         if (isSave) {
             save();
         } else {
