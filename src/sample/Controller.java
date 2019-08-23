@@ -91,12 +91,17 @@ public class Controller {
         }
     }
 
+
+    @FXML
+    void make(ActionEvent event) {
+        Depurate.clean(file);
+    }
+
     @FXML
     void exit(ActionEvent event) throws IOException {
         System.out.println(isSave);
         if (isSave) {
             save();
-            Depurate.clean(file);
             System.exit(0);
         } else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -106,7 +111,6 @@ public class Controller {
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
-                Depurate.clean(file);
                 System.exit(0);
             }
         }
