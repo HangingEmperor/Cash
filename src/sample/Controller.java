@@ -100,7 +100,6 @@ public class Controller {
 
     @FXML
     void exit(ActionEvent event) throws IOException {
-        System.out.println(isSave);
         if (isSave) {
             save();
             System.exit(0);

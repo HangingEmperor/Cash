@@ -7,6 +7,7 @@ public class Depurate {
     public static void clean(File file) {
         int size = 0;
         try {
+            boolean avaible = true;
             String aux = "";
             String oldData = "";
             FileReader fileReader = new FileReader(file);
@@ -19,7 +20,15 @@ public class Depurate {
                 aux = aux.replace(" ", "");
 
                 if (!aux.startsWith("//")) {
-                    oldData += size + " " + aux + "\n";
+                    if (!aux.startsWith("/*") && avaible) {
+                        oldData += size + " " + aux + "\n";
+                    } else {
+                        System.out.println(avaible);
+                        avaible = false;
+                        if (aux.startsWith("*/") || aux.endsWith("*/")) {
+                            avaible = true;
+                        }
+                    }
                 }
             }
 
