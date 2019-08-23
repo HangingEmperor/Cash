@@ -19,7 +19,7 @@ public class Depurate {
                 aux = aux.replace(" ", "");
 
                 if (!aux.startsWith("//")) {
-                    oldData += size + aux + "\n";
+                    oldData += size + " " + aux + "\n";
                 }
             }
 
