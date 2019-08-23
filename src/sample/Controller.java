@@ -2,10 +2,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -20,9 +17,10 @@ public class Controller {
     private Label title;
     @FXML
     private TextArea textArea;
+    @FXML
+    private Button buttonMake;
 
     private File file;
-    private File after;
     private boolean isSave;
 
     @FXML
@@ -47,6 +45,7 @@ public class Controller {
         } catch (IOException | NullPointerException ex) {
             System.err.println("Cierre inesperado.");
         }
+        buttonMake.setDisable(false);
     }
 
     @FXML
@@ -62,6 +61,7 @@ public class Controller {
                 System.err.println("Cierre inesperado.");
             }
         }
+        buttonMake.setDisable(false);
     }
 
     @FXML
@@ -89,6 +89,13 @@ public class Controller {
         } catch (IOException | NullPointerException ex) {
             System.err.println("Cierre inesperado.");
         }
+        buttonMake.setDisable(false);
+    }
+
+
+    @FXML
+    void make(ActionEvent event) {
+        Depurate.clean(file);
     }
 
     @FXML
@@ -96,7 +103,6 @@ public class Controller {
         System.out.println(isSave);
         if (isSave) {
             save();
-            Depurate.clean(file);
             System.exit(0);
         } else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -106,7 +112,6 @@ public class Controller {
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
-                Depurate.clean(file);
                 System.exit(0);
             }
         }
