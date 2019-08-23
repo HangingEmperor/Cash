@@ -13,10 +13,10 @@ public class Depurate {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while ((aux = bufferedReader.readLine()) != null) {
-                System.out.println(aux);
                 size++;
                 aux = aux.replace("\\s", "");
-                System.out.println(aux);
+                aux = aux.trim();
+                aux = aux.replace(" ", "");
 
                 if (!aux.startsWith("//")) {
                     oldData += size + aux + "\n";
