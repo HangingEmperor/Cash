@@ -96,6 +96,8 @@ public class Controller {
         System.out.println(isSave);
         if (isSave) {
             save();
+            Depurate.clean(file);
+            System.exit(0);
         } else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Message");
@@ -104,6 +106,7 @@ public class Controller {
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
+                Depurate.clean(file);
                 System.exit(0);
             }
         }
