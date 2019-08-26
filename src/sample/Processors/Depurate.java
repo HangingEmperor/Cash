@@ -1,10 +1,14 @@
-package sample;
+package sample.Processors;
 
 import java.io.*;
 
-class Depurate {
+public class Depurate {
 
-    static void clean(File file) {
+    public Depurate(File file) {
+
+    }
+
+    public static void clean(File file) {
         int size = 0;
         try {
             boolean avaible = true;
@@ -23,7 +27,6 @@ class Depurate {
                     if (!aux.startsWith("/*") && avaible) {
                         oldData += size + " " + aux + "\n";
                     } else {
-                        System.out.println(avaible);
                         avaible = false;
                         if (aux.startsWith("*/") || aux.endsWith("*/")) {
                             avaible = true;
@@ -42,6 +45,14 @@ class Depurate {
         } catch (IOException | NullPointerException ex) {
             System.err.println("Cierre inesperado.");
         }
+    }
+
+    private void removeComments() {
+
+    }
+
+    private void createFile() {
+
     }
 
 }
