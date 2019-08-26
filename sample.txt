@@ -1,15 +1,19 @@
-hola
-//xd
-/*as
+comentario
+// Hola omar
+/* d
+sd
+s
+d
+ss
+dsd
+sd
+s
+d*/
+	//sds
+	/*sdsd
+	as
+asdasd
+asd
 as
-as
-as
-no importa que sea asi?*/
-
-pero bueeeno que tal crack
-/* holasss
-aqui vamops a terminar*/
-que tal
-lol
-alala
-l
+dasd
+				*/
