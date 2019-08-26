@@ -2,9 +2,9 @@ package sample;
 
 import java.io.*;
 
-public class Depurate {
+class Depurate {
 
-    public static void clean(File file) {
+    static void clean(File file) {
         int size = 0;
         try {
             boolean avaible = true;
