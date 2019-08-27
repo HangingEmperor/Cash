@@ -1,21 +1,6 @@
-Hola
-Soy Omar
-/*Esto es comentarios */
-// Otro comentario
-// Otro jeje
-Hola
-SOy omar
-/*sdsdsd
-s
-d
-sd
-sd
-sd
-sd
-sd
-ds
-s
-d
-*/
-Omar de nuevo aqui
-Mandando saludo crack
+prueba;	//hola
+haciendo otras pruebas aqui
+me llamo omar
+//esto es un comentario
+	//ottro comonetario
+	me lalamo omar;				//gran comentario aqiui
