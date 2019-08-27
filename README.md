@@ -1,4 +1,4 @@
-# Simple Text Editor
+# Text Editor for Heavy
 Es un editor de texto que cumple sus funciones basicas como:
  <br>
  - Open: <i>Abrir un archivo de texto.</i>
