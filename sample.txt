@@ -1,6 +1,5 @@
-prueba;	//hola
-haciendo otras pruebas aqui
-me llamo omar
-//esto es un comentario
-	//ottro comonetario
-	me lalamo omar;				//gran comentario aqiui
+prueba;//prueba
+prueba;		//prueba
+			hola soy
+omar flor
+			prubea;				//qu etal djsj

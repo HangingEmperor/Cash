@@ -41,7 +41,7 @@ de codigo, siempre se deben colocar al incio de la linea de codigo.
 <br> <br>
 Para comentario en linea: <br>
 <code> // Esto es un comentario </code><br>
-Par comentario en multilinea: <br>
+Para comentario en multilinea: <br>
 <code>/* Esto <br>
         es un<br>
         comentario<br>

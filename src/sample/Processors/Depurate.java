@@ -16,23 +16,21 @@ public class Depurate {
         createFile(data);
     }
 
+    private String removeSpaces(String data) {
+        return data.replaceAll("\\s", "");
+    }
+
     private String removeComments() throws IOException {
         int size = 0;
         boolean avaible = true;
-        boolean isPrint = true;
         String aux = "", data = "";
-        Pila<String> pila = new Pila<>();
 
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         while ((aux = bufferedReader.readLine()) != null) {
             size++;
-            aux = aux.replace("\\s", "");
-            aux = aux.replace(" ", "");
-            aux = aux.replace("\t", "");
-            aux = aux.trim();
-            System.out.println(aux);
+            aux = removeSpaces(aux);
 
             if (!aux.startsWith("//")) {
                 if (!aux.startsWith("/*") && avaible) {
@@ -41,7 +39,7 @@ public class Depurate {
                     } else if (aux.contains(";")) {
                         int posCommentary = aux.lastIndexOf("//");
                         int posPointComa = aux.indexOf(";");
-                        System.out.println(posCommentary - posPointComa);
+
                         if (posCommentary - posPointComa == 1) {
                             data += size + " " + aux.substring(0, posCommentary) + "\n";
                         }
@@ -56,22 +54,6 @@ public class Depurate {
         return data;
     }
 
-    /*
-        private String removeExternalComments(String data) throws FileNotFoundException {
-            Pila<String> pila = new Pila<>();
-
-            String aux = "";
-
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-            while ((aux = bufferedReader.readLine()) != null) {
-
-            }
-
-            return "";
-        }
-    */
     private void createFile(String data) throws IOException {
         File over = new File("sample.pre");
         FileWriter archive = new FileWriter(over);
