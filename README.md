@@ -48,3 +48,6 @@ Par comentario en multilinea: <br>
         multilinea<br>
         */
 </code>
+
+### Markdown
+Diseñado con lenguaje Markdown.
