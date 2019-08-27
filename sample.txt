@@ -1,19 +1,21 @@
-hola
-//asas'a's'as'asa
-as
-
-a
+Hola
+Soy Omar
+/*Esto es comentarios */
+// Otro comentario
+// Otro jeje
+Hola
+SOy omar
+/*sdsdsd
 s
-as
-as
-/*asaASa
+d
+sd
+sd
+sd
+sd
+sd
+ds
 s
-as
-as
-a
-sa
-s
-a*/
-aaksa
-askasas
-Que tal
+d
+*/
+Omar de nuevo aqui
+Mandando saludo crack

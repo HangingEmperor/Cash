@@ -4,55 +4,53 @@ import java.io.*;
 
 public class Depurate {
 
-    public Depurate(File file) {
+    private File file;
 
+    public Depurate(File file) throws IOException {
+        this.file = file;
+        clean();
     }
 
-    public static void clean(File file) {
+    private void clean() throws IOException {
+        String data = removeComments();
+        createFile(data);
+    }
+
+    private String removeComments() throws IOException {
         int size = 0;
-        try {
-            boolean avaible = true;
-            String aux = "";
-            String oldData = "";
-            FileReader fileReader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+        boolean avaible = true;
+        String aux = "", data = "";
 
-            while ((aux = bufferedReader.readLine()) != null) {
-                size++;
-                aux = aux.replace("\\s", "");
-                aux = aux.trim();
-                aux = aux.replace(" ", "");
+        FileReader fileReader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-                if (!aux.startsWith("//")) {
-                    if (!aux.startsWith("/*") && avaible) {
-                        oldData += size + " " + aux + "\n";
-                    } else {
-                        avaible = false;
-                        if (aux.startsWith("*/") || aux.endsWith("*/")) {
-                            avaible = true;
-                        }
-                    }
+        while ((aux = bufferedReader.readLine()) != null) {
+            size++;
+            aux = aux.replace("\\s", "");
+            aux = aux.trim();
+            aux = aux.replace(" ", "");
+
+            if (!aux.startsWith("//")) {
+                if (!aux.startsWith("/*") && avaible) {
+                    data += size + " " + aux + "\n";
+                } else {
+                    avaible = aux.startsWith("*/") || aux.endsWith("*/");
                 }
             }
-
-            bufferedReader.close();
-
-            File over = new File("sample.pre");
-            System.out.println(over.getAbsolutePath());
-            FileWriter archive = new FileWriter(over);
-            archive.append(oldData);
-            archive.close();
-        } catch (IOException | NullPointerException ex) {
-            System.err.println("Cierre inesperado.");
         }
+
+        bufferedReader.close();
+        return data;
     }
 
-    private void removeComments() {
-
+    private void createFile(String data) throws IOException {
+        File over = new File("sample.pre");
+        FileWriter archive = new FileWriter(over);
+        archive.append(data);
+        archive.close();
     }
 
-    private void createFile() {
-
+    public String showPath() {
+        return file.getAbsolutePath();
     }
-
 }

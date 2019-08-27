@@ -96,7 +96,12 @@ public class Controller {
 
     @FXML
     void make(ActionEvent event) {
-        Depurate.clean(file);
+        try {
+            Depurate depurate = new Depurate(file);
+            depurate.showPath();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @FXML
