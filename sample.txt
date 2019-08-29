@@ -1,7 +1,1 @@
-esto es comentario de linea no // soy un comentaro // me peudes ver /*xdxdxd
-aqui me puedes /* ignorar un pcoo */ jajaj
-pero aqui /*  no
-debes
-ignorarme
-tanto si
-jaja */ ya volvi
+hhola //holas

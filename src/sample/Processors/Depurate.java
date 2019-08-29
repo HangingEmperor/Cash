@@ -1,5 +1,7 @@
 package sample.Processors;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import sample.Exceptions.InvalidCommentaryException;
 
 import java.io.*;
@@ -15,6 +17,7 @@ public class Depurate {
 
     private void clean() throws IOException {
         String data = removeMultiLineComments();
+        data = removeInvalidCharacters();
         createFile(data);
     }
 
@@ -107,45 +110,15 @@ public class Depurate {
                 throw new InvalidCommentaryException("No se cerro un comentario");
             }
         } catch (InvalidCommentaryException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "No se cerro un comentario.", ButtonType.OK);
+            alert.showAndWait();
         }
         return data;
     }
 
-    /* private String removeLineComments() throws IOException {
-        int size = 0;
-        String aux = "", data = "";
-
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-        while ((aux = bufferedReader.readLine()) != null) {
-            size++;
-            aux += "  ";
-            int posCommentary = 0;
-            try {
-                for (int i = 0; i < aux.length(); i++) {
-                    String check = aux.substring(i, i + 1);
-
-                    if (check.equals("/")) {
-                        posCommentary = aux.indexOf("/");
-                        if (!aux.substring(i + 1, i + 2).equals("/")) {
-                            throw new InvalidCommentaryException("No se cerro un comentario");
-                        } else {
-                            break;
-                        }
-                    }
-                }
-            } catch (InvalidCommentaryException |
-                    StringIndexOutOfBoundsException e) {
-                e.printStackTrace();
-            }
-            data += size + " " + aux.substring(0, posCommentary) + "\n";
-        }
-
-        bufferedReader.close();
-        return data;
-    }*/
+    private String removeInvalidCharacters() {
+        return "";
+    }
 
     private void createFile(String data) throws IOException {
         File over = new File("sample.pre");
@@ -158,3 +131,10 @@ public class Depurate {
         return file.getAbsolutePath();
     }
 }
+
+/*
+ * crear las funciones print(""); (Verificar si no encontramos las comillas contrarias, verificar si en el mensaje incluye
+ * los simbolos de los comentarios
+ * decidir que caracteres no son validos o cuales son validos por el ASCII, u otras metodologias
+ * de preferencia que sean los basicos, como parentesis, a-z
+ * el programa detectara un caracter que no se permita por el lenguaje, y ademas mostrar que caracter no es valido*/
