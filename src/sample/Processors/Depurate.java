@@ -34,24 +34,31 @@ public class Depurate {
         boolean existsMultiComments = false;
         boolean prevAster = false;
         boolean closeComment = true;
+        boolean isLineComment = false;
 
         try {
             while ((aux = bufferedReader.readLine()) != null) {
                 size++;
                 aux += "  ";
+                posCommentaryStart = 0;
 
                 for (int i = 0; i < aux.length(); i++) {
                     String check = aux.substring(i, i + 1);
 
                     if (check.equals("/") && !existsMultiComments) {
+                        posCommentaryStart = aux.indexOf("/");
                         if (!aux.substring(i + 1, i + 2).equals("*")) {
-                            throw new InvalidCommentaryException("No se cerro un comentario");
+                            if (!aux.substring(i + 1, i + 2).equals("/")) {
+                                throw new InvalidCommentaryException("No se cerro un comentario");
+                            } else {
+                                isLineComment = true;
+                                break;
+                            }
                         } else {
                             existsMultiComments = true;
                             prevAster = true;
                             closeComment = false;
                         }
-                        posCommentaryStart = aux.indexOf("/");
                         continue;
                     }
 
@@ -71,13 +78,30 @@ public class Depurate {
                         }
                     }
                 }
-                if (closeComment) {
-                    if (!existsMultiComments) {
-                        data += size + " " + aux.substring(0, posCommentaryStart) + aux.substring(posCommentaryFinal + 2) + "\n";
+                if (!isLineComment) {
+                    if (closeComment) {
+                        if (existsMultiComments) {
+                            data += size + " " + aux.substring(0, posCommentaryStart) + aux.substring(posCommentaryFinal + 2) + "\n";
+                        } else {
+                            if (aux.contains("*/")) {
+                                if (aux.contains("/*")) {
+                                    data += size + " " + aux.substring(0, aux.indexOf("/")) + aux.substring(aux.lastIndexOf("/") + 1) + "\n";
+                                } else if (!aux.substring(aux.indexOf("/") + 1).trim().isEmpty())
+                                    data += size + " " + aux.substring(aux.indexOf("/") + 1) + "\n";
+                            } else {
+                                data += size + " " + aux + "\n";
+                            }
+                        }
+                    } else {
+                        if (!(aux.substring(0, posCommentaryStart).length() == 0))
+                            data += size + " " + aux.substring(0, posCommentaryStart) + "\n";
                     }
+                } else {
+                    data += size + " " + aux.substring(0, posCommentaryStart) + "\n";
+                    isLineComment = false;
                 }
             }
-            if (closeComment) {
+            if (!closeComment) {
                 throw new InvalidCommentaryException("No se cerro un comentario");
             }
         } catch (InvalidCommentaryException e) {
@@ -132,10 +156,3 @@ public class Depurate {
         return file.getAbsolutePath();
     }
 }
-
-/* Los comentarios requieres ser de una linea, multilinea, y las consideraciones a hacer son:
-    - Los comentarios de una linea deben revisar si estan en el principio o en el final o en medio.
-    - Los comentarios multilinea se deben revisar de inicio hasta que se cierra, es decir, se va a revisar desde
-    cualquier punto del programa.
-    - Ademas si hay un comentario sin cerrar se debe notificar.
- */
