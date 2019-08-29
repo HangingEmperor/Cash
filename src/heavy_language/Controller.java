@@ -1,5 +1,6 @@
-package sample;
+package heavy_language;
 
+import heavy_language.Processors.Depurate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -7,7 +8,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.Processors.Depurate;
 
 import java.io.*;
 import java.util.Optional;

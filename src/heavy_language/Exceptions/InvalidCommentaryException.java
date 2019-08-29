@@ -1,4 +1,4 @@
-package sample.Exceptions;
+package heavy_language.Exceptions;
 
 public class InvalidCommentaryException extends Exception {
 

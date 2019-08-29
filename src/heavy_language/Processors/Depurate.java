@@ -1,8 +1,9 @@
-package sample.Processors;
+package heavy_language.Processors;
 
+import heavy_language.Exceptions.InvalidCharacterException;
+import heavy_language.Exceptions.InvalidCommentaryException;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import sample.Exceptions.InvalidCommentaryException;
 
 import java.io.*;
 
@@ -116,7 +117,23 @@ public class Depurate {
         return data;
     }
 
-    private String removeInvalidCharacters() {
+    private String removeInvalidCharacters() throws IOException {
+        String aux = "", data = "";
+        int posCommentaryStart = 0;
+        int posCommentaryFinal = 0;
+
+        FileReader fileReader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader((fileReader));
+
+        try {
+            while ((aux = bufferedReader.readLine()) != null) {
+
+            }
+            throw new InvalidCharacterException("s");
+        } catch (InvalidCharacterException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Caracter invalido.", ButtonType.OK);
+            alert.showAndWait();
+        }
         return "";
     }
 
