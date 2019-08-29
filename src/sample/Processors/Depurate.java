@@ -48,9 +48,9 @@ public class Depurate {
                     if (check.equals("/") && !existsMultiComments) {
                         posCommentaryStart = aux.indexOf("/");
                         if (!aux.substring(i + 1, i + 2).equals("*")) {
-                            if (!aux.substring(i + 1, i + 2).equals("/")) {
+                            if (!aux.substring(i + 1, i + 2).equals("/"))
                                 throw new InvalidCommentaryException("No se cerro un comentario");
-                            } else {
+                            else {
                                 isLineComment = true;
                                 break;
                             }
@@ -81,11 +81,13 @@ public class Depurate {
                 if (!isLineComment) {
                     if (closeComment) {
                         if (existsMultiComments) {
-                            data += size + " " + aux.substring(0, posCommentaryStart) + aux.substring(posCommentaryFinal + 2) + "\n";
+                            data += size + " " + aux.substring(0, posCommentaryStart) +
+                                    aux.substring(posCommentaryFinal + 2) + "\n";
                         } else {
                             if (aux.contains("*/")) {
                                 if (aux.contains("/*")) {
-                                    data += size + " " + aux.substring(0, aux.indexOf("/")) + aux.substring(aux.lastIndexOf("/") + 1) + "\n";
+                                    data += size + " " + aux.substring(0, aux.indexOf("/")) +
+                                            aux.substring(aux.lastIndexOf("/") + 1) + "\n";
                                 } else if (!aux.substring(aux.indexOf("/") + 1).trim().isEmpty())
                                     data += size + " " + aux.substring(aux.indexOf("/") + 1) + "\n";
                             } else {
@@ -110,7 +112,7 @@ public class Depurate {
         return data;
     }
 
-    private String removeLineComments() throws IOException {
+    /* private String removeLineComments() throws IOException {
         int size = 0;
         String aux = "", data = "";
 
@@ -143,7 +145,7 @@ public class Depurate {
 
         bufferedReader.close();
         return data;
-    }
+    }*/
 
     private void createFile(String data) throws IOException {
         File over = new File("sample.pre");
