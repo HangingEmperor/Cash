@@ -98,7 +98,7 @@ public class Controller {
     void make(ActionEvent event) {
         try {
             Depurate depurate = new Depurate(file);
-            depurate.showPath();
+            System.out.println(depurate.showPath());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
