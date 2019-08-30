@@ -35,10 +35,7 @@ programa considere un comentario.
 Lenguaje de programacion con sintaxis de Rust pero con las 
 librerias de Java.
 <h5>Adds on</h5>
-Heavy admite comentarios en linea y comentarios multinea, lo que no
-esta admitido en Heavy son poner comentarios al final de una linea
-de codigo, siempre se deben colocar al incio de la linea de codigo.
-<br> <br>
+Heavy admite comentarios en linea y comentarios multinea <br>
 Para comentario en linea: <br>
 <code> // Esto es un comentario </code><br>
 Para comentario en multilinea: <br>
