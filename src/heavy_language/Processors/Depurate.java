@@ -18,7 +18,6 @@ public class Depurate {
 
     private void clean() throws IOException {
         String data = removeMultiLineComments();
-        data = removeInvalidCharacters();
         createFile(data);
     }
 
@@ -28,8 +27,8 @@ public class Depurate {
 
     private String removeMultiLineComments() throws IOException {
         int size = 0;
-        String aux = "", data = "";
-        int posCommentaryStart = 0;
+        String aux, data = "";
+        int posCommentaryStart;
         int posCommentaryFinal = 0;
 
         FileReader fileReader = new FileReader(file);
@@ -39,6 +38,8 @@ public class Depurate {
         boolean prevAster = false;
         boolean closeComment = true;
         boolean isLineComment = false;
+        boolean isPrintText = false;
+        int counterPrintText = 0;
 
         try {
             while ((aux = bufferedReader.readLine()) != null) {
@@ -49,37 +50,44 @@ public class Depurate {
                 for (int i = 0; i < aux.length(); i++) {
                     String check = aux.substring(i, i + 1);
 
-                    if (check.equals("/") && !existsMultiComments) {
-                        posCommentaryStart = aux.indexOf("/");
-                        if (!aux.substring(i + 1, i + 2).equals("*")) {
-                            if (!aux.substring(i + 1, i + 2).equals("/"))
+                    if (!check.equals("\"") && !isPrintText) {
+                        if (check.equals("/") && !existsMultiComments) {
+                            posCommentaryStart = aux.indexOf("/");
+                            if (!aux.substring(i + 1, i + 2).equals("*")) {
+                                if (!aux.substring(i + 1, i + 2).equals("/"))
+                                    throw new InvalidCommentaryException("No se cerro un comentario");
+                                else {
+                                    isLineComment = true;
+                                    break;
+                                }
+                            } else {
+                                existsMultiComments = true;
+                                prevAster = true;
+                                closeComment = false;
+                            }
+                            continue;
+                        }
+
+                        if (prevAster) {
+                            prevAster = false;
+                            continue;
+                        }
+
+                        if (check.equals("*") && existsMultiComments) {
+                            if (!aux.substring(i + 1, i + 2).equals("/")) {
                                 throw new InvalidCommentaryException("No se cerro un comentario");
-                            else {
-                                isLineComment = true;
+                            } else {
+                                existsMultiComments = false;
+                                closeComment = true;
+                                posCommentaryFinal = aux.lastIndexOf("*");
                                 break;
                             }
-                        } else {
-                            existsMultiComments = true;
-                            prevAster = true;
-                            closeComment = false;
                         }
-                        continue;
-                    }
-
-                    if (prevAster) {
-                        prevAster = false;
-                        continue;
-                    }
-
-                    if (check.equals("*") && existsMultiComments) {
-                        if (!aux.substring(i + 1, i + 2).equals("/")) {
-                            throw new InvalidCommentaryException("No se cerro un comentario");
-                        } else {
-                            existsMultiComments = false;
-                            closeComment = true;
-                            posCommentaryFinal = aux.lastIndexOf("*");
-                            break;
-                        }
+                    } else {
+                        if (check.equals("\"") && isPrintText)
+                            isPrintText = false;
+                        else
+                            isPrintText = true;
                     }
                 }
                 if (!isLineComment) {
