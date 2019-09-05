@@ -1,1 +1,1 @@
-hola print("que /* jeje tal cracksito"); //Esto es comentario
+print("hola soy omar"); /* hola */

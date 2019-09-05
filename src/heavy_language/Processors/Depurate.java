@@ -2,6 +2,7 @@ package heavy_language.Processors;
 
 import heavy_language.Exceptions.InvalidCharacterException;
 import heavy_language.Exceptions.InvalidCommentaryException;
+import heavy_language.Exceptions.InvalidQuotationMarkException;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
@@ -25,6 +26,24 @@ public class Depurate {
         return data.replaceAll("\\s", "");
     }
 
+    private void checkCharacters() throws FileNotFoundException {
+        int size = 0;
+        String aux = "", data = "";
+
+        FileReader fileReader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader((fileReader));
+
+        try {
+            while ((aux = bufferedReader.readLine()) != null) {
+                if (aux.matches("\\p{ASCII}")) {
+                    throw new InvalidCharacterException("Caracter no valido.");
+                }
+            }
+        } catch (IOException | InvalidCharacterException e) {
+            e.printStackTrace();
+        }
+    }
+
     private String removeMultiLineComments() throws IOException {
         int size = 0;
         String aux, data = "";
@@ -39,7 +58,7 @@ public class Depurate {
         boolean closeComment = true;
         boolean isLineComment = false;
         boolean isPrintText = false;
-        int counterPrintText = 0;
+        boolean closePrintText = true;
 
         try {
             while ((aux = bufferedReader.readLine()) != null) {
@@ -52,7 +71,7 @@ public class Depurate {
 
                     if (!check.equals("\"") && !isPrintText) {
                         if (check.equals("/") && !existsMultiComments) {
-                            posCommentaryStart = aux.indexOf("/");
+                            posCommentaryStart = i;
                             if (!aux.substring(i + 1, i + 2).equals("*")) {
                                 if (!aux.substring(i + 1, i + 2).equals("/"))
                                     throw new InvalidCommentaryException("No se cerro un comentario");
@@ -84,22 +103,28 @@ public class Depurate {
                             }
                         }
                     } else {
-                        if (check.equals("\"") && isPrintText)
+                        if (check.equals("\"") && isPrintText) {
                             isPrintText = false;
-                        else
+                            closePrintText = false;
+                        } else {
+                            closePrintText = true;
                             isPrintText = true;
+                        }
                     }
                 }
                 if (!isLineComment) {
                     if (closeComment) {
                         if (existsMultiComments) {
+                            System.out.println(2);
                             data += size + " " + aux.substring(0, posCommentaryStart) +
                                     aux.substring(posCommentaryFinal + 2) + "\n";
                         } else {
                             if (aux.contains("*/")) {
                                 if (aux.contains("/*")) {
-                                    data += size + " " + aux.substring(0, aux.indexOf("/")) +
-                                            aux.substring(aux.lastIndexOf("/") + 1) + "\n";
+                                    System.out.println(3);
+
+                                    data += size + " " + aux.substring(0, posCommentaryStart) +
+                                            aux.substring(posCommentaryFinal + 2) + "\n";
                                 } else if (!aux.substring(aux.indexOf("/") + 1).trim().isEmpty())
                                     data += size + " " + aux.substring(aux.indexOf("/") + 1) + "\n";
                             } else {
@@ -118,8 +143,11 @@ public class Depurate {
             if (!closeComment) {
                 throw new InvalidCommentaryException("No se cerro un comentario");
             }
-        } catch (InvalidCommentaryException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "No se cerro un comentario.", ButtonType.OK);
+            if (closePrintText) {
+                throw new InvalidQuotationMarkException("No se cerraron las comillas");
+            }
+        } catch (InvalidCommentaryException | InvalidQuotationMarkException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
             alert.showAndWait();
         }
         return data;
