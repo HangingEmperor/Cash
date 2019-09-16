@@ -1,1 +1,1 @@
-print("hola soy omar"); /* hola */
+ls

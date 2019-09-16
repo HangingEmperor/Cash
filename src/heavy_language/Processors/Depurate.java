@@ -19,6 +19,7 @@ public class Depurate {
 
     private void clean() throws IOException {
         String data = removeMultiLineComments();
+        checkCharacters();
         createFile(data);
     }
 
@@ -40,7 +41,8 @@ public class Depurate {
                 }
             }
         } catch (IOException | InvalidCharacterException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
         }
     }
 
