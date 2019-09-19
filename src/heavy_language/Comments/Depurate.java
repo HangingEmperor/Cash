@@ -1,4 +1,4 @@
-package heavy_language.Processors;
+package heavy_language.Comments;
 
 import heavy_language.Exceptions.InvalidCharacterException;
 import heavy_language.Exceptions.InvalidCommentaryException;
@@ -10,17 +10,16 @@ import java.io.*;
 
 public class Depurate {
 
-    private File file;
+    public File file;
 
     public Depurate(File file) throws IOException {
         this.file = file;
-        clean();
     }
 
-    private void clean() throws IOException {
+    public String clean() throws IOException {
         String data = removeMultiLineComments();
         checkCharacters();
-        createFile(data);
+        return data;
     }
 
     private String removeSpaces(String data) {
@@ -144,8 +143,7 @@ public class Depurate {
             }
             if (!closeComment) {
                 throw new InvalidCommentaryException("No se cerro un comentario");
-            }
-            if (closePrintText) {
+            } else if (!closePrintText) {
                 throw new InvalidQuotationMarkException("No se cerraron las comillas");
             }
         } catch (InvalidCommentaryException | InvalidQuotationMarkException e) {
@@ -153,37 +151,6 @@ public class Depurate {
             alert.showAndWait();
         }
         return data;
-    }
-
-    private String removeInvalidCharacters() throws IOException {
-        String aux = "", data = "";
-        int posCommentaryStart = 0;
-        int posCommentaryFinal = 0;
-
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader((fileReader));
-
-        try {
-            while ((aux = bufferedReader.readLine()) != null) {
-
-            }
-            throw new InvalidCharacterException("s");
-        } catch (InvalidCharacterException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Caracter invalido.", ButtonType.OK);
-            alert.showAndWait();
-        }
-        return "";
-    }
-
-    private void createFile(String data) throws IOException {
-        File over = new File("sample.pre");
-        FileWriter archive = new FileWriter(over);
-        archive.append(data);
-        archive.close();
-    }
-
-    public String showPath() {
-        return file.getAbsolutePath();
     }
 }
 

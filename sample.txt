@@ -1,1 +1,1 @@
-ls
+Depurate depurate = new Depurate(file);

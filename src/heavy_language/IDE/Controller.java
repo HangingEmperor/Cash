@@ -1,6 +1,7 @@
-package heavy_language;
+package heavy_language.IDE;
 
-import heavy_language.Processors.Depurate;
+import heavy_language.Comments.Depurate;
+import heavy_language.Compiler.Compiler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -93,12 +94,12 @@ public class Controller {
         buttonMake.setDisable(false);
     }
 
-
     @FXML
     void make(ActionEvent event) {
         try {
             Depurate depurate = new Depurate(file);
-            System.out.println(depurate.showPath());
+            Compiler.createFile(depurate.clean());
+            System.out.println(Compiler.showPath());
         } catch (IOException ex) {
             ex.printStackTrace();
         }

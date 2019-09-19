@@ -1,4 +1,4 @@
-package heavy_language;
+package heavy_language.IDE;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
