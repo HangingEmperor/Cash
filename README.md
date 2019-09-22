@@ -25,8 +25,8 @@ archivo a lenguaje maquina, no sera un ejecutable, solo un
 archivo traducido a lenguaje maquina.
 
 # Cash Script Language 
-Cash es un lenguaje de programacion de tipo Script, que pretende
-ser divertido a la hora de programar colocando ciertas referencias 
+**_Cash es un lenguaje de programacion de tipo Script, que pretende
+ser divertido a la hora de programar_** colocando ciertas referencias 
 musicales al mundo del rock y country, entre otros que quiza
 en un futuro decida añadir (No estoy seguro). Cash toma como 
 base (O similitud) al lenguaje de **_Python_**; Aunque se que
@@ -62,44 +62,50 @@ PRINT("Hola" /* Comentario aqui */)
 VAR IN/* Comentario aqui */T X = 10 
 ```
 >Para ver mas sobre la clase Comments:  
-[https://github.com/HangingEmperor/Cash/blob/master/src/cash_language/Comments](URL "Ver mas")
+>[https://github.com/HangingEmperor/Cash/blob/master/src/cash_language/Comments](URL "Ver mas")
 
 #### Variables
 En Cash Scripting, las variables se declaran colocando al inicio
 de la linea de codigo la instruccion **VAR** y despues el **TIPO** de
 variable que se desea crear, y despues el **NOMBRE de la VARIABLE**, 
 y despues el signo de asignacion **=** y su inicializacion con el valor
-asignado acorde al tipo de variable indicado.  
-Es importante recalcar el hecho que todas las variables se deben inicializar,
-no se puede crear una variable sin inicializarla.
+asignado acorde al tipo de variable indicado.  **_Es importante recalcar 
+el hecho que todas las variables se deben inicializar,
+no se puede crear una variable sin inicializarla._**
 ```[java]
 VAR [TIPO DE VARIABLE] [NOMBRE DE VARIABLE] = [ASIGNACION]
 ```
 ##### Boolean
+Las variables de tipo _booleano_ solo tienen dos tipos de inicializarse: **TRUE** o **FALSE**.
 ```[java]
 VAR BOOLEAN boolean = TRUE
 ```
 ##### Enteros
+Las variables de tipo entero solo
+permite valores enteros, no permiten puntos o comas en la inicializacion, ademas
+de que solo admite numeros.
 ```[java]
 VAR INT integer = 10
 ```
 ##### Punto flotante
+Las variables de tipo punto flotante solo
+permite valores flotantes, permite puntos o comas en la inicializacion, solo se permite
+agregar numeros en la inicializacion.
 ```[java]
 VAR FLOAT float = 10.02
 ```
-##### Doble
-```[java]
-VAR DOUBLE double = 10.00000000000
-```
 ##### Caracter
+Las variables de tipo caracter solo permiten **UN** valor acord al ASCII Americano.
 ```[java]
 VAR CHAR character = 'J'
 ```
 ##### Cadena
+Las variables de tipo cadenas solo **VALORES** permiten acordes al ASCII Americano.
 ```[java]
 VAR STRING string = "Johnny Cash"
 ```
-
+> Mas informacion sobre el ASCII Americano:  
+> [http://www.columbia.edu/kermit/ascii.html](URL "Ver mas")
 #### Operadores logicos
 ##### NOT
 ```[java]
@@ -150,12 +156,12 @@ IF ( x > 5 ) {
 ```
 
 #### Excepciones
-* InvalidCharacterException
-* InvalidCommentaryException
-* InvalidQuotationMarkException
+##### InvalidCharacterException
+##### InvalidCommentaryException
+##### InvalidQuotationMarkException
 >Para ver mas sobre las clases Exceptions: 
-[https://github.com/HangingEmperor/Cash/tree/master/src/cash_language/Exceptions](URL "Ver mas")
->
+>[https://github.com/HangingEmperor/Cash/tree/master/src/cash_language/Exceptions](URL "Ver mas")
+
 #### Generar
 Cash es un lenguaje que funciona como Script, por lo tanto no
 pasa por un proceso de compilacion, si no de interpretado, asi
@@ -163,4 +169,4 @@ que se genera un archivo .cash, puede hacerse desde el boton
 make del editor o simplemente generarse a aparte (En una futura
 adicion por consola).
 >Para ver mas sobre la clase Compiler:  
-[https://github.com/HangingEmperor/Cash/tree/master/src/cash_language/Compiler](URL "Ver mas")
+>[https://github.com/HangingEmperor/Cash/tree/master/src/cash_language/Compiler](URL "Ver mas")
