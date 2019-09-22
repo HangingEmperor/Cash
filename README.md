@@ -65,16 +65,50 @@ VAR IN/* Comentario aqui */T X = 10
 [https://github.com/HangingEmperor/Cash/blob/master/src/cash_language/Comments](URL "Ver mas")
 
 #### Variables
+##### Boolean
+```[java]
+VAR BOOLEAN boolean = true
+```
 ##### Enteros
+```[java]
+VAR INT integer = 10
+```
 ##### Punto flotante
+```[java]
+VAR FLOAT float = 10.02
+```
 ##### Doble
+```[java]
+VAR DOUBLE double = 10.00000000000
+```
 ##### Caracter
+```[java]
+VAR CHAR character = 'J'
+```
 ##### Cadena
+```[java]
+VAR STRING string = "Johnny Cash"
+```
 
 #### Operadores logicos
 ##### NOT
+```[java]
+IF ( NOT [x > 4] ) {
+    // Si la condicion es verdadera, entonces se vuelve falsa.
+}
+```
 ##### OR
+```[java]
+IF ( x < 2 OR x > 4 ) {
+    // Si alguno de los dos es verdadero, entonces es verdadero.
+}
+```
 ##### AND
+```[java]
+IF ( x < 2 AND x > 4 ) {
+    // Si los dos son verdaderos, entonces es verdadero.
+}
+```
 
 #### Impresiones
 ```[java]

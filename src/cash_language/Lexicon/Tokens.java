@@ -12,7 +12,7 @@ public class Tokens {
 
         String[] allKeywords = {"AND", "AS", "BRAK", "CLASS", "CONTINUE", "DEF", "ELIF", "ELSE", "IF", "FINALLY", "FOR",
                 "FROM", "GLOBAL", "IMPORT", "IN", "IS", "NOT", "OR", "PASS", "PRINT", "RETURN", "TRY", "WHILE", "FALSE",
-                "TRUE", "NONE", "VAR", "INT", "FLOAT", "STRING", "DOUBLE", "CHAR", "CASH"};
+                "TRUE", "NONE", "VAR", "INT", "FLOAT", "STRING", "DOUBLE", "CHAR", "BOOLEAN", "CASH"};
         String[] allDelimiters = {"(", ")", "[", "]", "{", "}", ",", ".", ":", ";", "\"", "=", "+", "-", "*", "/"};
         delimiters.addAll(Arrays.asList(allDelimiters));
         tokens.addAll(Arrays.asList(allKeywords));
