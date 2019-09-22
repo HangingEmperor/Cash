@@ -64,19 +64,31 @@ VAR IN/* Comentario aqui */T X = 10
 >Para ver mas sobre la clase Comments:  
 [https://github.com/HangingEmperor/Cash/blob/master/src/cash_language/Comments](URL "Ver mas")
 
+#### Variables
+##### Enteros
+##### Punto flotante
+##### Doble
+##### Caracter
+##### Cadena
+
+#### Operadores logicos
+##### NOT
+##### OR
+##### AND
+
 #### Impresiones
 ```[java]
 PRINT("Hola")
 ```
 
-### Condiciones
-#### Condicion Simple
+#### Condiciones
+##### Condicion Simple
 ```[java]
 IF ( x > 3 ) {
     // Code
 }
 ```
-#### Condicion Sino
+##### Condicion Sino
 ```[java]
 IF ( x > 4 ) {
     // Code
@@ -84,8 +96,7 @@ IF ( x > 4 ) {
     // Code
 }
 ```
-
-#### Condicion Sino si
+##### Condicion Sino si
 ```[java]
 IF ( x > 5 ) {
     // Code
