@@ -61,10 +61,10 @@ PRINT("Hola" /* Comentario aqui */)
 VAR IN/* Comentario aqui */T X = 10 
 ```
 >Para ver mas sobre la clase Comments:  
-[https://github.com/HangingEmperor/Heavy/blob/master/src/cash_language/Comments](URL "Ver mas")
+[https://github.com/HangingEmperor/Cash/blob/master/src/cash_language/Comments](URL "Ver mas")
 #### Excepciones
 >Para ver mas sobre las clases Exceptions: 
-[https://github.com/HangingEmperor/Heavy/tree/master/src/cash_language/Exceptions](URL "Ver mas")
+[https://github.com/HangingEmperor/Cash/tree/master/src/cash_language/Exceptions](URL "Ver mas")
 #### Generar
 Cash es un lenguaje que funciona como Script, por lo tanto no
 pasa por un proceso de compilacion, si no de interpretado, asi
@@ -72,4 +72,4 @@ que se genera un archivo .heavy, puede hacerse desde el boton
 make del editor o simplemente generarse a aparte (En una futura
 adicion por consola).
 >Para ver mas sobre la clase Compiler:
-[https://github.com/HangingEmperor/Heavy/tree/master/src/cash_language/Compiler](URL "Ver mas")
+[https://github.com/HangingEmperor/Cash/tree/master/src/cash_language/Compiler](URL "Ver mas")
