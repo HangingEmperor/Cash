@@ -23,7 +23,7 @@ codifica en el lenguaje adecuado, al pulsar el boton Make
 va a dedicarse a interpretar el codigo escrito y hara un
 archivo a lenguaje maquina, no sera un ejecutable, solo un
 archivo traducido a lenguaje maquina.
-
+d
 # Cash Script Language 
 Cash es un lenguaje de programacion de tipo Script, que pretende
 ser divertido a la hora de programar colocando ciertas referencias 
