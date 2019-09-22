@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8"
-            fx:controller="heavy_language.IDE.Controller">
+            fx:controller="cash_language.IDE.Controller">
     <children>
         <ToolBar layoutX="517.0" prefHeight="40.0" prefWidth="283.0">
         <items>

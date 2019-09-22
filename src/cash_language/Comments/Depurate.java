@@ -1,7 +1,7 @@
-package heavy_language.Comments;
+package cash_language.Comments;
 
-import heavy_language.Exceptions.InvalidCommentaryException;
-import heavy_language.Exceptions.InvalidQuotationMarkException;
+import cash_language.Exceptions.InvalidCommentaryException;
+import cash_language.Exceptions.InvalidQuotationMarkException;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 

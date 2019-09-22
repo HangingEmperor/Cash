@@ -1,4 +1,4 @@
-package heavy_language.Lexicon;
+package cash_language.Lexicon;
 
 import java.util.ArrayList;
 import java.util.Arrays;

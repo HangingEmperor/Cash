@@ -1,5 +1,5 @@
-# IDE for Heavy
-HeavyManage es un editor de texto que cumple sus 
+# IDE for Cash
+CashEditor es un editor de texto que cumple sus 
 funciones basicas como:
 
  - Open: Abrir un archivo de texto.
@@ -24,14 +24,14 @@ va a dedicarse a interpretar el codigo escrito y hara un
 archivo a lenguaje maquina, no sera un ejecutable, solo un
 archivo traducido a lenguaje maquina.
 
-# Heavy Script Language 
-## Version 1.1
-En esta nueva version se han realizado modificacion grandes al
-diseño planteado del lenguaje, pues ahora tendra un enfoque
-mayormente hacia ser un lenguaje de programacion de tipo 
-Scripting, tomando como base (O similitud) al lenguaje de 
-Python, aunque se que existe Jython, la idea es diseñar algo
-mas cercano a Java y este elimine las cosas que en Java son algo
+# Cash Script Language 
+Cash es un lenguaje de programacion de tipo Script, que pretende
+ser divertido a la hora de programar colocando ciertas referencias 
+musicales al mundo del rock y country, entre otros que quiza
+en un futuro decida añadir (No estoy seguro). Cash toma como 
+base (O similitud) al lenguaje de **_Python_**; Aunque se que
+ existe _**Jython**_, la idea es diseñar algo mas cercano a **_Java_** y 
+ este elimine las cosas que en **_Java_** son algo
 tediosas y pulirlo a que sea algo mas comodo de programar, ademas
 de que realizare una investigacion sobre que letras deberian ser
 acomodadas para poder programar mas rapido y eficiente, potenciando
@@ -40,10 +40,14 @@ experimental, no pretende ponerce en el mercado Open Source o
 resultar en esencia util, es un proyecto personal ligado a una
 investigacion relacionado a como codificar correctamente en el
 teclado.
+## Version 1.2
+En esta nueva version se ha optado por cambiar el nombre y 
+hacerlo algo mas divertido ademas de agregar ciertas referencias
+a la musica.
 
 ### Funciones del lenguaje
 #### Comentarios
-Heavy admite comentarios en linea y comentarios multinea.
+Cash admite comentarios en linea y comentarios multinea.
 ``` [java] 
 // Esto es un comentario en linea
 
@@ -56,9 +60,16 @@ recomendaria este tipo de practica tan incomoda...).
 PRINT("Hola" /* Comentario aqui */)
 VAR IN/* Comentario aqui */T X = 10 
 ```
-Para ver mas sobre la clase Comments:  
-[https://github.com/HangingEmperor/Heavy/blob/master/src/heavy_language/Comments/Depurate.java.](URL "Ver mas")
-
+>Para ver mas sobre la clase Comments:  
+[https://github.com/HangingEmperor/Heavy/blob/master/src/cash_language/Comments](URL "Ver mas")
 #### Excepciones
-
-#### Compilacion
+>Para ver mas sobre las clases Exceptions: 
+[https://github.com/HangingEmperor/Heavy/tree/master/src/cash_language/Exceptions](URL "Ver mas")
+#### Generar
+Cash es un lenguaje que funciona como Script, por lo tanto no
+pasa por un proceso de compilacion, si no de interpretado, asi
+que se genera un archivo .heavy, puede hacerse desde el boton
+make del editor o simplemente generarse a aparte (En una futura
+adicion por consola).
+>Para ver mas sobre la clase Compiler:
+[https://github.com/HangingEmperor/Heavy/tree/master/src/cash_language/Compiler](URL "Ver mas")

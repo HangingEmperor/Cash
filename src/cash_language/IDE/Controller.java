@@ -1,7 +1,7 @@
-package heavy_language.IDE;
+package cash_language.IDE;
 
-import heavy_language.Comments.Depurate;
-import heavy_language.Compiler.Compiler;
+import cash_language.Comments.Depurate;
+import cash_language.Generate.Compiler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

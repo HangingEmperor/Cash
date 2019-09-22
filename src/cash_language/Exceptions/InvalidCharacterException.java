@@ -1,4 +1,4 @@
-package heavy_language.Exceptions;
+package cash_language.Exceptions;
 
 public class InvalidCharacterException extends Exception {
 

@@ -1,1 +1,1 @@
-Depurate depurate = new Depurate(file);
+printirnir

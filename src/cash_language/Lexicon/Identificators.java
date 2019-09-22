@@ -1,4 +1,4 @@
-package heavy_language.Lexicon;
+package cash_language.Lexicon;
 
 public class Identificators {
 }

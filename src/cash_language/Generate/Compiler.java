@@ -1,4 +1,4 @@
-package heavy_language.Compiler;
+package cash_language.Generate;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -9,7 +9,7 @@ public class Compiler {
     private static File file;
 
     public static void createFile(String data) throws IOException {
-        file = new File("sample.pre");
+        file = new File("sample.cash");
         FileWriter archive = new FileWriter(file);
         archive.append(data);
         archive.close();
