@@ -8,10 +8,13 @@ public class Tokens {
     private static ArrayList tokens;
 
     public Tokens() {
-        String[] allTokens = {"INT", "STRING", "IF", "ELSE", "FOR", "WHILE", "PRINT", "FUNCTION", "DO", "WHILE", "SCRIPT",
-                "FLOAT", "SCANER", ";", ",", ".", "+", "-", "/", "*", "=", "\"", "(", ")", "/", "\\", "<", ">", "=", "<=",
-                ">=", "==", "!", "!=", "?"};
-        tokens.addAll(Arrays.asList(allTokens));
+
+        String[] allKeywords = {"AND", "AS", "BRAK", "CLASS", "CONTINUE", "DEF", "ELIF", "ELSE", "IF", "FINALLY", "FOR",
+                "FROM", "GLOBAL", "IMPORT", "IN", "IS", "NOT", "OR", "PASS", "PRINT", "RETURN", "TRY", "WHILE", "FALSE",
+                "TRUE", "NONE", "VAR", "INT", "FLOAT", "STRING", "DOUBLE", "CHAR"};
+        String[] allDelimiters = {"(", ")", "[", "]", "{", "}", ",", ".", ":", ";", "\"", "=", "+", "-", "*", "/"};
+        tokens.addAll(Arrays.asList(allDelimiters));
+        tokens.addAll(Arrays.asList(allKeywords));
     }
 
     public static ArrayList getTokens() {
@@ -21,4 +24,5 @@ public class Tokens {
     public static void setTokens(ArrayList tokens) {
         Tokens.tokens = tokens;
     }
+
 }

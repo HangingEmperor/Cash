@@ -1,12 +1,14 @@
 package heavy_language.Comments;
 
-import heavy_language.Exceptions.InvalidCharacterException;
 import heavy_language.Exceptions.InvalidCommentaryException;
 import heavy_language.Exceptions.InvalidQuotationMarkException;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Depurate {
 
@@ -17,32 +19,7 @@ public class Depurate {
     }
 
     public String clean() throws IOException {
-        String data = removeMultiLineComments();
-        checkCharacters();
-        return data;
-    }
-
-    private String removeSpaces(String data) {
-        return data.replaceAll("\\s", "");
-    }
-
-    private void checkCharacters() throws FileNotFoundException {
-        int size = 0;
-        String aux = "", data = "";
-
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader((fileReader));
-
-        try {
-            while ((aux = bufferedReader.readLine()) != null) {
-                if (aux.matches("\\p{ASCII}")) {
-                    throw new InvalidCharacterException("Caracter no valido.");
-                }
-            }
-        } catch (IOException | InvalidCharacterException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
-            alert.showAndWait();
-        }
+        return removeMultiLineComments();
     }
 
     private String removeMultiLineComments() throws IOException {
@@ -153,10 +130,3 @@ public class Depurate {
         return data;
     }
 }
-
-/*
- * crear las funciones print(""); (Verificar si no encontramos las comillas contrarias, verificar si en el mensaje incluye
- * los simbolos de los comentarios
- * decidir que caracteres no son validos o cuales son validos por el ASCII, u otras metodologias
- * de preferencia que sean los basicos, como parentesis, a-z
- * el programa detectara un caracter que no se permita por el lenguaje, y ademas mostrar que caracter no es valido*/
