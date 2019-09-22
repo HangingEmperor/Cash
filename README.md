@@ -65,9 +65,19 @@ VAR IN/* Comentario aqui */T X = 10
 [https://github.com/HangingEmperor/Cash/blob/master/src/cash_language/Comments](URL "Ver mas")
 
 #### Variables
+En Cash Scripting, las variables se declaran colocando al inicio
+de la linea de codigo la instruccion **VAR** y despues el **TIPO** de
+variable que se desea crear, y despues el **NOMBRE de la VARIABLE**, 
+y despues el signo de asignacion **=** y su inicializacion con el valor
+asignado acorde al tipo de variable indicado.  
+Es importante recalcar el hecho que todas las variables se deben inicializar,
+no se puede crear una variable sin inicializarla.
+```[java]
+VAR [TIPO DE VARIABLE] [NOMBRE DE VARIABLE] = [ASIGNACION]
+```
 ##### Boolean
 ```[java]
-VAR BOOLEAN boolean = true
+VAR BOOLEAN boolean = TRUE
 ```
 ##### Enteros
 ```[java]
@@ -93,7 +103,7 @@ VAR STRING string = "Johnny Cash"
 #### Operadores logicos
 ##### NOT
 ```[java]
-IF ( NOT [x > 4] ) {
+IF ( NOT (x > 4) ) {
     // Si la condicion es verdadera, entonces se vuelve falsa.
 }
 ```
