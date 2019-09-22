@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Depurate {
 
-    public File file;
+    private File file;
 
     public Depurate(File file) throws IOException {
         this.file = file;
@@ -120,7 +120,7 @@ public class Depurate {
             }
             if (!closeComment) {
                 throw new InvalidCommentaryException("No se cerro un comentario");
-            } else if (!closePrintText) {
+            } else if (closePrintText) {
                 throw new InvalidQuotationMarkException("No se cerraron las comillas");
             }
         } catch (InvalidCommentaryException | InvalidQuotationMarkException e) {

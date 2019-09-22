@@ -23,7 +23,7 @@ codifica en el lenguaje adecuado, al pulsar el boton Make
 va a dedicarse a interpretar el codigo escrito y hara un
 archivo a lenguaje maquina, no sera un ejecutable, solo un
 archivo traducido a lenguaje maquina.
-d
+
 # Cash Script Language 
 Cash es un lenguaje de programacion de tipo Script, que pretende
 ser divertido a la hora de programar colocando ciertas referencias 
@@ -40,6 +40,7 @@ experimental, no pretende ponerce en el mercado Open Source o
 resultar en esencia util, es un proyecto personal ligado a una
 investigacion relacionado a como codificar correctamente en el
 teclado.
+
 ## Version 1.2
 En esta nueva version se ha optado por cambiar el nombre y 
 hacerlo algo mas divertido ademas de agregar ciertas referencias
@@ -62,14 +63,49 @@ VAR IN/* Comentario aqui */T X = 10
 ```
 >Para ver mas sobre la clase Comments:  
 [https://github.com/HangingEmperor/Cash/blob/master/src/cash_language/Comments](URL "Ver mas")
+
+#### Impresiones
+```[java]
+PRINT("Hola")
+```
+
+### Condiciones
+#### Condicion Simple
+```[java]
+IF ( x > 3 ) {
+    // Code
+}
+```
+#### Condicion Sino
+```[java]
+IF ( x > 4 ) {
+    // Code
+} ELSE {
+    // Code
+}
+```
+
+#### Condicion Sino si
+```[java]
+IF ( x > 5 ) {
+    // Code
+} ELIF ( x < 2) {
+    // Code
+}
+```
+
 #### Excepciones
+* InvalidCharacterException
+* InvalidCommentaryException
+* InvalidQuotationMarkException
 >Para ver mas sobre las clases Exceptions: 
 [https://github.com/HangingEmperor/Cash/tree/master/src/cash_language/Exceptions](URL "Ver mas")
+>
 #### Generar
 Cash es un lenguaje que funciona como Script, por lo tanto no
 pasa por un proceso de compilacion, si no de interpretado, asi
-que se genera un archivo .heavy, puede hacerse desde el boton
+que se genera un archivo .cash, puede hacerse desde el boton
 make del editor o simplemente generarse a aparte (En una futura
 adicion por consola).
->Para ver mas sobre la clase Compiler:
+>Para ver mas sobre la clase Compiler:  
 [https://github.com/HangingEmperor/Cash/tree/master/src/cash_language/Compiler](URL "Ver mas")

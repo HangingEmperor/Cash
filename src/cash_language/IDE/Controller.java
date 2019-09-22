@@ -53,6 +53,12 @@ public class Controller {
     @FXML
     void save() {
         if (!isSave) {
+            String s = "This is a sample sentence.";
+            String[] words = s.split("\\s+");
+            for (int i = 0; i < words.length; i++) {
+                words[i] = words[i].replaceAll("[^\\w]", "");
+                System.out.println(words[i]);
+            }
             saveAs();
         } else {
             try {
