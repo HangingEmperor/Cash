@@ -108,6 +108,9 @@ VAR STRING string = "Johnny Cash"
 > [http://www.columbia.edu/kermit/ascii.html](URL "Ver mas")
 #### Operadores logicos
 ##### NOT
+El operador NOT funciona como ! en algunos otros lenguajes, o como NOT en Python,
+su funcion es que a partir de una condicion (Escrita en parentesis) esta la invierte
+si es Falsa la condicion se hara verdadera, y viceversa.
 ```[java]
 IF ( NOT (x > 4) ) {
     // Si la condicion es verdadera, entonces se vuelve falsa.

@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8"
-            fx:controller="cash_language.IDE.Controller">
-    <children>
-        <ToolBar layoutX="517.0" prefHeight="40.0" prefWidth="283.0">
-        <items>
-          <Button mnemonicParsing="false" onAction="#open" text="Open" />
-              <Button mnemonicParsing="false" onAction="#save" text="Save" />
-            <Button mnemonicParsing="false" onAction="#saveAs" text="Save As..." />
-            <Button fx:id="buttonMake" disable="true" mnemonicParsing="false" onAction="#make" text="Make"/>
-            <Button defaultButton="true" mnemonicParsing="false" onAction="#exit" text="X" />
-        </items>
-      </ToolBar>
-      <TextArea fx:id="textArea" layoutY="39.0" prefHeight="563.0" prefWidth="800.0" promptText="Hora del codigo" />
-        <ToolBar prefHeight="40.0" prefWidth="517.0">
-        <items>
-            <Label fx:id="title" contentDisplay="CENTER" lineSpacing="10.0" text="       Simple Editor Text" textAlignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <textFill>
-                  <RadialGradient centerX="0.5166666666666666" centerY="0.47619047619047616" focusAngle="93.37" focusDistance="-1.0" radius="1.0">
-                     <stops>
-                        <Stop color="BLACK" />
-                        <Stop color="#25a4d7" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </textFill>
-            </Label>
-        </items>
-      </ToolBar>
-    </children>
-</AnchorPane>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8">
+    <center>
+        <SplitPane dividerPositions="0.8007518796992481" prefHeight="563.0" prefWidth="800.0"
+                   BorderPane.alignment="CENTER">
+            <items>
+                <TextArea fx:id="textArea" prefHeight="561.0" prefWidth="352.0" promptText="Hora del codigo"/>
+                <TextArea prefHeight="200.0" prefWidth="200.0" promptText="Codigo generado"/>
+            </items>
+        </SplitPane>
+    </center>
+    <top>
+        <ToolBar prefHeight="30.0" prefWidth="809.0" BorderPane.alignment="CENTER">
+            <items>
+                <ToolBar prefHeight="13.0" prefWidth="535.0">
+                    <items>
+                        <Label fx:id="title" contentDisplay="CENTER" lineSpacing="10.0" text="       Cash Editor Text"
+                               textAlignment="CENTER">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                            <textFill>
+                                <RadialGradient centerX="0.5166666666666666" centerY="0.47619047619047616"
+                                                focusAngle="93.37" focusDistance="-1.0" radius="1.0">
+                                    <stops>
+                                        <Stop color="BLACK"/>
+                                        <Stop color="#25a4d7" offset="1.0"/>
+                                    </stops>
+                                </RadialGradient>
+                            </textFill>
+                        </Label>
+                    </items>
+                </ToolBar>
+                <Button mnemonicParsing="false" onAction="#open" text="Open"/>
+                <Button mnemonicParsing="false" onAction="#save" text="Save"/>
+                <Button mnemonicParsing="false" onAction="#saveAs" text="Save As..."/>
+                <Button fx:id="buttonMake" disable="true" mnemonicParsing="false" onAction="#make" text="Make"/>
+                <Button defaultButton="true" mnemonicParsing="false" onAction="#exit" text="X"/>
+            </items>
+        </ToolBar>
+    </top>
+</BorderPane>

@@ -2,6 +2,7 @@ package cash_language.IDE;
 
 import cash_language.Comments.Depurate;
 import cash_language.Generate.Compiler;
+import cash_language.Lexicon.Tokens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -53,12 +54,6 @@ public class Controller {
     @FXML
     void save() {
         if (!isSave) {
-            String s = "This is a sample sentence.";
-            String[] words = s.split("\\s+");
-            for (int i = 0; i < words.length; i++) {
-                words[i] = words[i].replaceAll("[^\\w]", "");
-                System.out.println(words[i]);
-            }
             saveAs();
         } else {
             try {
@@ -106,6 +101,7 @@ public class Controller {
             Depurate depurate = new Depurate(file);
             Compiler.createFile(depurate.clean());
             System.out.println(Compiler.showPath());
+            System.out.println(Tokens.isCorrectTokens(depurate.clean()));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
