@@ -54,39 +54,31 @@ public class Tokens {
         String[] words = data.split("\\s+");
         String[] auxWords;
 
-        for (int i = 0; i < words.length; i++) {
-            System.out.println(1);
-            words[i] = words[i].replaceAll("[^\\w]", "");
-            for (int j = 0; j < words[i].length(); j++) {
-                System.out.println(2);
-                System.out.println(words[i]);
-                System.out.println(words[i].substring(j, j + 1));
-                System.out.println(words[i].substring(j, j + 1).matches("[A-Z]"));
-                if (words[i].substring(j, j + 1).matches("[A-Z]")) {
-                    System.out.println(3);
-                    for (int k = 0; k < tokens.size(); k++) {
-                        System.out.println(4);
-                        if (words[i].substring(j, j + 1).equals(tokens.get(k).substring(j, j + 1))) {
-                            System.out.println(5);
-                            for (int l = 0; l < tokens.get(k).length(); l++) {
-                                System.out.println(6);
-                                if (words[i].substring(l, l + 1).equals(tokens.get(k).substring(l, l + 1))) {
-                                    System.out.println(7);
-                                    if (l == tokens.get(k).length() - 1) {
-                                        System.out.println(8);
-                                        return true;
+        try {
+            for (int i = 0; i < words.length; i++) {
+                words[i] = words[i].replaceAll("[^\\w]", "");
+                for (int j = 0; j < words[i].length(); j++) {
+                    if (words[i].substring(j, j + 1).matches("[A-Z]")) {
+                        for (int k = 0; k < tokens.size(); k++) {
+                            if (words[i].substring(j, j + 1).equals(tokens.get(k).substring(j, j + 1))) {
+                                for (int l = 0; l < tokens.get(k).length(); l++) {
+                                    if (words[i].substring(l, l + 1).equals(tokens.get(k).substring(l, l + 1))) {
+                                        if (l == tokens.get(k).length() - 1) {
+                                            return true;
+                                        }
+                                    } else {
+                                        break;
                                     }
-                                } else {
-                                    System.out.println(9);
-                                    break;
                                 }
                             }
                         }
+                    } else if (words[i].substring(j, j + 1).matches("[a-z]")) {
+                        break;
                     }
-                } else if (words[i].substring(j, j + 1).matches("[a-z]")) {
-                    break;
                 }
             }
+        } catch (StringIndexOutOfBoundsException ex) {
+            ex.printStackTrace();
         }
         return false;
     }

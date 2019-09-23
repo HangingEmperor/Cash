@@ -5,6 +5,7 @@ import cash_language.Generate.Compiler;
 import cash_language.Lexicon.Tokens;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -12,9 +13,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.*;
+import java.net.URL;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
 
     @FXML
     private Label title;
@@ -99,6 +102,7 @@ public class Controller {
     void make(ActionEvent event) {
         try {
             Depurate depurate = new Depurate(file);
+
             Compiler.createFile(depurate.clean());
             System.out.println(Compiler.showPath());
             System.out.println(Tokens.isCorrectTokens(depurate.clean()));
@@ -124,5 +128,10 @@ public class Controller {
             }
         }
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Tokens tokens = new Tokens();
     }
 }
