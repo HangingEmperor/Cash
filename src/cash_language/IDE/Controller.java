@@ -130,6 +130,20 @@ public class Controller implements Initializable {
 
     }
 
+    void showGeneratedFile() throws FileNotFoundException{
+        String data = "", aux;
+        FileReader fileReader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader((fileReader));
+        
+        try{
+        while ((aux = bufferedReader.readLine()) != null) {
+            
+        }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Tokens tokens = new Tokens();
