@@ -24,6 +24,8 @@ public class Controller implements Initializable {
     @FXML
     private TextArea textArea;
     @FXML
+    private TextArea textAreaCode;
+    @FXML
     private Button buttonMake;
 
     private File file;
@@ -137,11 +139,12 @@ public class Controller implements Initializable {
         
         try{
         while ((aux = bufferedReader.readLine()) != null) {
-            
+            data += aux;
         }
         }catch(IOException e){
             e.printStackTrace();
         }
+        textAreaCode.setText(data);
     }
     
     @Override
