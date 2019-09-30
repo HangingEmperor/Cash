@@ -9,6 +9,9 @@ public class Tokens {
     private static ArrayList<String> tokens = new ArrayList<>();
     private static ArrayList<String> delimiters = new ArrayList<>();
     private static Hashtable<String, Integer> tokensTable = new Hashtable<>();
+    
+    /* Agregar un vector que tenga un vector como identificadores, done almacenara todo lo que el programa no conoce
+    para si mismo, es decir un identificador, */
 
     public Tokens() {
         String[] allKeywords = {"AND", "AS", "BREAK", "CLASS", "CONTINUE", "DEF", "ELIF", "ELSE", "IF", "FINALLY", "FOR",
