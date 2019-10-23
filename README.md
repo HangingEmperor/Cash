@@ -62,7 +62,7 @@ PRINT("Hola" /* Comentario aqui */)
 VAR IN/* Comentario aqui */T X = 10 
 ```
 >Para ver mas sobre la clase Comments:  
->[https://github.com/HangingEmperor/Cash/blob/master/src/cash_language/Comments](URL "Ver mas")
+>[https://github.com/HangingEmperor/Cash/blob/master/src/cash_language/Comments](URL "https://github.com/HangingEmperor/Cash/blob/master/src/cash_language/Comments")
 
 #### Variables
 En Cash Scripting, las variables se declaran colocando al inicio
