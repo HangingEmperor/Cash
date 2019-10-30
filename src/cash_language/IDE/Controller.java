@@ -105,9 +105,13 @@ public class Controller implements Initializable {
         try {
             Depurate depurate = new Depurate(file);
 
-            Compiler.createFile(depurate.clean());
+            String data = depurate.clean();
+            System.out.println(data);
+
+            Compiler.createFile(data);
             System.out.println(Compiler.showPath());
             System.out.println(Tokens.isCorrectTokens(depurate.clean()));
+            textAreaCode.setText(data);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
