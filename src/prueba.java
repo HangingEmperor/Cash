@@ -1,9 +1,9 @@
+import cash_language.Lexicon.Tokens;
+
 public class prueba {
 
     public static void main(String[] args) {
-        String aux = "1                    \n";
-        if (aux.matches("^+[\\d]\\p{Space}+")) {
-            System.out.println("ok");
-        }
+        Tokens tokens = new Tokens();
+        System.out.println(Tokens.tokensTable.get("AND"));
     }
 }

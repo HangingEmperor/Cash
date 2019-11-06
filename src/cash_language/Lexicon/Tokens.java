@@ -1,5 +1,12 @@
 package cash_language.Lexicon;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
@@ -8,7 +15,7 @@ public class Tokens {
 
     private static ArrayList<String> tokens = new ArrayList<>();
     private static ArrayList<String> delimiters = new ArrayList<>();
-    private static Hashtable<String, Integer> tokensTable = new Hashtable<>();
+    public static Hashtable<String, Integer> tokensTable = new Hashtable<>();
     
     /* Agregar un vector que tenga un vector como identificadores, done almacenara todo lo que el programa no conoce
     para si mismo, es decir un identificador, */
@@ -53,6 +60,18 @@ public class Tokens {
         Tokens.tokensTable = tokensTable;
     }
 
+    public static void replaceWithTokens(File file) throws IOException {
+        String aux;
+        String data = "";
+        FileReader fileReader = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader((fileReader));
+
+        while ((aux = bufferedReader.readLine()) != null) {
+            data += "" + aux + "\n";
+
+        }
+    }
+
     public static Boolean isCorrectTokens(String data) {
         String[] words = data.split("\\s+");
         String[] auxWords;
@@ -81,10 +100,12 @@ public class Tokens {
                 }
             }
         } catch (StringIndexOutOfBoundsException ex) {
-            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.OK);
+            alert.showAndWait();
         }
         return false;
     }
+
 
     public Boolean isCorrectDelimiters() {
 
