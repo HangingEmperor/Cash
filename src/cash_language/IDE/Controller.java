@@ -106,7 +106,12 @@ public class Controller implements Initializable {
             Depurate depurate = new Depurate(file);
 
             String data = depurate.clean();
-            System.out.println(data);
+
+            FileWriter archive = new FileWriter(file);
+            archive.append(data);
+            archive.close();
+
+            data = depurate.isEmptyLine(data);
 
             Compiler.createFile(data);
             System.out.println(Compiler.showPath());
